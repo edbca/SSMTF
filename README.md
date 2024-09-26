@@ -22,7 +22,7 @@ Please refer to [Datasets.md](datasets/DATASETS.md) for pre-processing and more 
 ## Get Started
 
 ### Pretrained Models
-Downloading the pretrained models from this [link](https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng) and put them under `experiments/pretrained_models folder`.
+Downloading the pretrained models from this [link](https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng) （code:4emw）and put them under `experiments/pretrained_models folder`.
 
 ### Test
 
