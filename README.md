@@ -22,7 +22,7 @@ Please refer to [Datasets.md](datasets/DATASETS.md) for pre-processing and more 
 ## Get Started
 
 ### Pretrained Models
-Downloading the pretrained models from this [link](https://drive.google.com/drive/folders/1dTkXMzeBrHelVQUEx5zib5MdmvqDaSd9?usp=sharing) and put them under `experiments/pretrained_models folder`.
+Downloading the pretrained models from this [link](https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng) and put them under `experiments/pretrained_models folder`.
 
 ### Test
 
@@ -31,14 +31,14 @@ We provide quick test code with the pretrained model.
 1. Modify the paths to dataset and pretrained model in the following yaml files for configuration.
 
     ```bash
-    ./options/test/test_C2_matching.yml
-    ./options/test/test_C2_matching_mse.yml
+    ./options/test/test_SSMTF_gan.yml
+    ./options/test/test_SSMTF_mse.yml
     ```
 
 1. Run test code for models trained using **GAN loss**.
 
     ```bash
-    python mmsr/test.py -opt "options/test/test_C2_matching.yml"
+    python mmsr/test.py -opt "options/test/test_SSMTF_gan.yml"
     ```
 
    Check out the results in `./results`.
@@ -46,7 +46,7 @@ We provide quick test code with the pretrained model.
 1. Run test code for models trained using only **reconstruction loss**.
 
     ```bash
-    python mmsr/test.py -opt "options/test/test_C2_matching_mse.yml"
+    python mmsr/test.py -opt "options/test/test_SSMTF_mse.yml"
     ```
 
    Check out the results in in `./results`
