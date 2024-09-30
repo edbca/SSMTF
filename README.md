@@ -16,7 +16,7 @@ Multi-Scale Texture Fusion for Reference-based Image Super-Resolution: New Datas
 ## Dataset Preparation
 
 - Train Set: [Our DRefSR Dataset](https://drive.google.com/drive/folders/1hGHy36XcmSZ1LtARWmGL5OK1IUdWJi3I), [CUFED Dataset](https://drive.google.com/drive/folders/1hGHy36XcmSZ1LtARWmGL5OK1IUdWJi3I)
-- Test Set: [Our DRefSR Dataset](https://drive.google.com/drive/folders/1hGHy36XcmSZ1LtARWmGL5OK1IUdWJi3I), [WR-SR Dataset](https://drive.google.com/drive/folders/16UKRu-7jgCYcndOlGYBmo5Pp0_Mq71hP?usp=sharing), [CUFED5 Dataset](https://drive.google.com/file/d/1Fa1mopExA9YGG1RxrCZZn7QFTYXLx6ph/view)
+- Test Set: [Our DRefSR Dataset](https://pan.baidu.com/s/1fEDQI-zpTVYCGz-3-FvH7g?pwd=dtpg), [WR-SR Dataset](https://drive.google.com/drive/folders/16UKRu-7jgCYcndOlGYBmo5Pp0_Mq71hP?usp=sharing), [CUFED5 Dataset](https://drive.google.com/file/d/1Fa1mopExA9YGG1RxrCZZn7QFTYXLx6ph/view)
 
 Please refer to [Datasets.md](datasets/DATASETS.md) for pre-processing and more details.
 
@@ -25,7 +25,7 @@ Please refer to [Datasets.md](datasets/DATASETS.md) for pre-processing and more 
 ### DRefSR Dataset
 Downloading the training dataset from this [link](https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng) 
 
-Downloading the testing dataset from this [link](https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng) 
+Downloading the testing dataset from this [link]( https://pan.baidu.com/s/1fEDQI-zpTVYCGz-3-FvH7g?pwd=dtpg) 
 
 ### Pretrained Models
 Downloading the pretrained models from this [link]([https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng](https://pan.baidu.com/s/1GUymA7t3eD1TqDVLUxNLZQ?pwd=f5cf)) and put them under `experiments/pretrained_models folder`.
