@@ -27,6 +27,9 @@ Downloading the training dataset from this [link](https://pan.baidu.com/s/1MYNfq
 
 Downloading the testing dataset from this [link]( https://pan.baidu.com/s/1fEDQI-zpTVYCGz-3-FvH7g?pwd=dtpg) 
 
+<div align=center>
+<img src='./figs/DRefSR_testing.png' width=2530>
+</div>
 
 ### Pretrained Models
 Downloading the pretrained models from this [link](https://pan.baidu.com/s/1GUymA7t3eD1TqDVLUxNLZQ?pwd=f5cf) and put them under `experiments/pretrained_models folder`.
