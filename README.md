@@ -28,7 +28,7 @@ Downloading the training dataset from this [link](https://pan.baidu.com/s/1VtjJI
 Downloading the testing dataset from this [link](https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng) 
 
 ### Pretrained Models
-Downloading the pretrained models from this [link](https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng) and put them under `experiments/pretrained_models folder`.
+Downloading the pretrained models from this [link]([https://pan.baidu.com/s/1VtjJI4khTCSE1LhzH5lxng](https://pan.baidu.com/s/1GUymA7t3eD1TqDVLUxNLZQ?pwd=f5cf)) and put them under `experiments/pretrained_models folder`.
 
 ### Test
 
