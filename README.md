@@ -9,7 +9,7 @@ Multi-Scale Texture Fusion for Reference-based Image Super-Resolution: New Datas
 ## Dependencies and Installation
 
 - Python >= 3.8
--  CUDA 12.1
+- CUDA 12.1
 - PyTorch >= 2.2.1
 - mamba-ssm >= 2.1.0
 
