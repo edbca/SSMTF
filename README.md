@@ -9,13 +9,14 @@ Multi-Scale Texture Fusion for Reference-based Image Super-Resolution: New Datas
 ## Dependencies and Installation
 
 - Python >= 3.8
+-  CUDA 12.1
 - PyTorch >= 2.2.1
-- CUDA 12.1
+- mamba-ssm >= 2.1.0
 
 ## Dataset Preparation
 
-- Train Set: [CUFED Dataset](https://drive.google.com/drive/folders/1hGHy36XcmSZ1LtARWmGL5OK1IUdWJi3I)
-- Test Set: [WR-SR Dataset](https://drive.google.com/drive/folders/16UKRu-7jgCYcndOlGYBmo5Pp0_Mq71hP?usp=sharing), [CUFED5 Dataset](https://drive.google.com/file/d/1Fa1mopExA9YGG1RxrCZZn7QFTYXLx6ph/view)
+- Train Set: [Our DRefSR Dataset](https://drive.google.com/drive/folders/1hGHy36XcmSZ1LtARWmGL5OK1IUdWJi3I), [CUFED Dataset](https://drive.google.com/drive/folders/1hGHy36XcmSZ1LtARWmGL5OK1IUdWJi3I)
+- Test Set: [Our DRefSR Dataset](https://drive.google.com/drive/folders/1hGHy36XcmSZ1LtARWmGL5OK1IUdWJi3I), [WR-SR Dataset](https://drive.google.com/drive/folders/16UKRu-7jgCYcndOlGYBmo5Pp0_Mq71hP?usp=sharing), [CUFED5 Dataset](https://drive.google.com/file/d/1Fa1mopExA9YGG1RxrCZZn7QFTYXLx6ph/view)
 
 Please refer to [Datasets.md](datasets/DATASETS.md) for pre-processing and more details.
 
