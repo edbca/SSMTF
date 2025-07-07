@@ -69,24 +69,11 @@ All logging files in the training process, *e.g.*, log message, checkpoints, and
 1. Modify the paths to dataset in the following yaml files for configuration.
    ```bash
    ./options/train/stage1_teacher_contras_network.yml
-   ./options/train/stage2_student_contras_network.yml
    ./options/train/stage3_restoration_gan.yml
+   ./options/train/stage3_restoration_mse.yml
    ```
 
-1. Stage 1: Train teacher contrastive network.
-   ```bash
-   python mmsr/train.py -opt "options/train/stage1_teacher_contras_network.yml"
-   ```
-
-1. Stage 2: Train student contrastive network.
-   ```bash
-   # add the path to *pretrain_model_teacher* in the following yaml
-   # the path to *pretrain_model_teacher* is the model obtained in stage1
-   ./options/train/stage2_student_contras_network.yml
-   python mmsr/train.py -opt "options/train/stage2_student_contras_network.yml"
-   ```
-
-1. Stage 3: Train restoration network.
+1. Train restoration network.
    ```bash
    # add the path to *pretrain_model_feature_extractor* in the following yaml
    # the path to *pretrain_model_feature_extractor* is the model obtained in stage2
