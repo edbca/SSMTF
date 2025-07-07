@@ -68,7 +68,6 @@ All logging files in the training process, *e.g.*, log message, checkpoints, and
 
 1. Modify the paths to dataset in the following yaml files for configuration.
    ```bash
-   ./options/train/stage1_teacher_contras_network.yml
    ./options/train/stage3_restoration_gan.yml
    ./options/train/stage3_restoration_mse.yml
    ```
