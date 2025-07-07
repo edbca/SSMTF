@@ -299,15 +299,21 @@ def tensor_shift(x, shift=(2, 2), fill_val=0):
     Returns:
         Tensor: the shifted tensor.
     """
+    if len(x.size())==2:
+        h, w = x.size()
+    else:
+        _, h, w, _ = x.size() 
 
-    _, h, w, _ = x.size()
     shift_h, shift_w = shift
     new = torch.ones_like(x) * fill_val
 
     if shift_h >= 0 and shift_w >= 0:
-        len_h = h - shift_h #40-0,40-1,40-2=40,39,38
-        len_w = w - shift_w #40-0,40-1,40-2=40,39,38
-        new[:, shift_h: shift_h + len_h, shift_w:shift_w + len_w, :] = x.narrow(1, 0, len_h).narrow(2, 0, len_w)
+        len_h = h - shift_h #39-0,39-1,39-2=39,38,37
+        len_w = w - shift_w #39-0,39-1,39-2=39,38,37
+        if len(x.size())==2:
+            new[shift_h: shift_h + len_h, shift_w:shift_w + len_w] = x.narrow(0, 0, len_h).narrow(1, 0, len_w)
+        else:
+            new[:, shift_h: shift_h + len_h, shift_w:shift_w + len_w, :] = x.narrow(1, 0, len_h).narrow(2, 0, len_w)
     else:
         raise NotImplementedError
     return new

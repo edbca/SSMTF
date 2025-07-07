@@ -36,8 +36,8 @@ class ContrasExtractorLayer(nn.Module):
             torch.Tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1))
 
     def forward(self, batch):
-        batch = (batch - self.mean) / self.std #[4,3,160,160]
-        output = self.model(batch) #[4,256,40,40]
+        batch = (batch - self.mean) / self.std
+        output = self.model(batch)
         return output
 
 
