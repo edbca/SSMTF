@@ -3,7 +3,7 @@ import os
 
 import torch
 import torch.nn as nn
-#from mmcv.runner import master_only
+# from mmcv.runner import master_only
 from mmengine.dist.utils import master_only
 from torch.nn.parallel import DataParallel, DistributedDataParallel
 
@@ -263,7 +263,27 @@ class BaseModel():
                 load_net[k[7:]] = v
                 load_net.pop(k)
         self._print_different_keys_loading(net, load_net, strict)
-        net.load_state_dict(load_net, strict=strict)
+
+        modified_state_dict = {}
+        for key in load_net.keys():
+            new_key = key
+            if 'small_dyn_agg.weight' in key:
+                new_key = key.replace('small_dyn_agg.weight', 'small_dyn_agg.deform_conv.weight')
+            elif 'small_dyn_agg.bias' in key:
+                new_key = key.replace('small_dyn_agg.bias', 'small_dyn_agg.deform_conv.bias')
+            elif 'medium_dyn_agg.weight' in key:
+                new_key = key.replace('medium_dyn_agg.weight', 'medium_dyn_agg.deform_conv.weight')
+            elif 'medium_dyn_agg.bias' in key:
+                new_key = key.replace('medium_dyn_agg.bias', 'medium_dyn_agg.deform_conv.bias')
+            elif 'large_dyn_agg.weight' in key:
+                new_key = key.replace('large_dyn_agg.weight', 'large_dyn_agg.deform_conv.weight')
+            elif 'large_dyn_agg.bias' in key:
+                new_key = key.replace('large_dyn_agg.bias', 'large_dyn_agg.deform_conv.bias')
+            modified_state_dict[new_key] = load_net[key]
+        net.load_state_dict(modified_state_dict, strict=strict)
+
+        #net.load_state_dict(load_net, strict=strict)
+        
 
     @master_only
     def save_training_state(self, epoch, current_iter):

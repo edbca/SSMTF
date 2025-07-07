@@ -191,10 +191,8 @@ class RefRestorationModel(SRModel):
 
     def optimize_parameters(self, step):
         self.features = self.net_extractor(self.match_img_in, self.img_ref)
-        self.pre_offset, self.img_ref_feat = self.net_map(
-            self.features, self.img_ref)
-        self.output = self.net_g(self.img_in_lq, self.pre_offset,
-                                 self.img_ref_feat)
+        self.pre_offset, self.img_ref_feat, self.mask = self.net_map(self.features, self.img_ref)
+        self.output = self.net_g(self.img_in_lq, self.pre_offset, self.img_ref_feat, self.mask)
 
         if step <= self.net_g_pretrain_steps:
             # pretrain the net_g with pixel Loss
@@ -272,10 +270,8 @@ class RefRestorationModel(SRModel):
         self.net_g.eval()
         with torch.no_grad():
             self.features = self.net_extractor(self.match_img_in, self.img_ref)
-            self.pre_offset, self.img_ref_feat = self.net_map(
-                self.features, self.img_ref)
-            self.output = self.net_g(self.img_in_lq, self.pre_offset,
-                                     self.img_ref_feat)
+            self.pre_offset, self.img_ref_feat, self.mask = self.net_map(self.features, self.img_ref)
+            self.output = self.net_g(self.img_in_lq, self.pre_offset, self.img_ref_feat, self.mask)
         self.net_g.train()
 
     def get_current_visuals(self):
