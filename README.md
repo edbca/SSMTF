@@ -72,9 +72,9 @@ All logging files in the training process, *e.g.*, log message, checkpoints, and
    ./options/train/stage3_restoration_mse.yml
    ```
 
-1. Train restoration network.
+1. Train restoration network. Downloading the pretrained feature extraction models from C2-Matching  [link](https://drive.google.com/drive/folders/1dTkXMzeBrHelVQUEx5zib5MdmvqDaSd9?usp=sharing) and put "feature_extraction.pth" under `experiments/pretrained_models folder`.
    ```bash
-   # Downloading the pretrained feature extraction models from C2-Matching  [link](https://drive.google.com/drive/folders/1dTkXMzeBrHelVQUEx5zib5MdmvqDaSd9?usp=sharing) and put "feature_extraction.pth" under `experiments/pretrained_models folder`.
+   # prepare the dataset path and pretrained model path in the following yaml
    ./options/train/stage3_restoration_gan.yml
    python mmsr/train.py -opt "options/train/stage3_restoration_gan.yml"
 
