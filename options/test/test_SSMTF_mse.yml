@@ -1,4 +1,4 @@
-name: SSMTF
+name: SSMTF_gan
 suffix: ~  # add suffix to saved images
 scale: 4
 model_type: RefRestorationModel
@@ -10,14 +10,14 @@ datasets:
   test_1:  # the 1st test dataset
     name: dataset_dame
     type: RefCUFEDDataset
-    dataroot_in: /mnt/data2/zhy/reference/dataset/CUFED/test/Urban100
-    dataroot_ref: /mnt/data2/zhy/reference/dataset/CUFED/test/Urban100
+    dataroot_in: /mnt/data2/zhy/reference/dataset/DRefSR/test/DRefSR
+    dataroot_ref: /mnt/data2/zhy/reference/dataset/DRefSR/test/DRefSR
     io_backend:
       type: disk
 
     bicubic_model: PIL
 
-    ann_file: /mnt/data2/zhy/reference/Ours/datasets/Urban100_pairs.txt
+    ann_file: ./datasets/DRefSR_pairs.txt
 
 val_func: BasicSRValidation
 save_img: true
@@ -39,6 +39,6 @@ network_extractor:
 
 #### path
 path:
-  pretrain_model_g: /mnt/data2/zhy/reference/Ours/experiments/DRefSR/mse/net_g_445000.pth
-  pretrain_model_feature_extractor: /mnt/data2/zhy/reference/Ours/experiments/DRefSR/net_student_latest_DRef.pth
+  pretrain_model_g: ./pretrained_models/SSMTF_gan_DRefSR.pth
+  pretrain_model_feature_extractor: ./pretrained_models/feature_extraction.pth
   strict_load: true

@@ -1,24 +1,20 @@
-name: SSMTF_gan
+name: SSMTF_mse
 suffix: ~  # add suffix to saved images
 scale: 4
 model_type: RefRestorationModel
 set_CUDA_VISIBLE_DEVICES: ~
 crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
-gpu_ids: [1]
+gpu_ids: [0]
 
 datasets:
   test_1:  # the 1st test dataset
     name: dataset_dame
     type: RefCUFEDDataset
-    dataroot_in: /mnt/data2/zhy/reference/dataset/CUFED/test/DRefSR
-    dataroot_ref: /mnt/data2/zhy/reference/dataset/CUFED/test/DRefSR
-    io_backend:
+    dataroot_in: /mnt/data2/zhy/reference/dataset/DRefSR/test/DRefSR
+    dataroot_ref: /mnt/data2/zhy/reference/dataset/DRefSR/test/DRefSR
       type: disk
-
     bicubic_model: PIL
-
-    ann_file: /mnt/data2/zhy/reference/Ours/datasets/DRefSR_pairs.txt
-
+    ann_file: ./datasets/DRefSR_pairs.txt
 val_func: BasicSRValidation
 save_img: true
 
@@ -39,6 +35,6 @@ network_extractor:
 
 #### path
 path:
-  pretrain_model_g: /mnt/data2/zhy/reference/Ours/experiments/CUFED/net_g_235000_gan.pth
-  pretrain_model_feature_extractor: /mnt/data2/zhy/reference/Ours/experiments/DRefSR/net_student_latest_DRef.pth
+  pretrain_model_g: ./pretrained_models/SSMTF_mse_DRefSR.pth
+  pretrain_model_feature_extractor: ./pretrained_models/feature_extraction.pth
   strict_load: true
