@@ -82,6 +82,10 @@ All logging files in the training process, *e.g.*, log message, checkpoints, and
    ./options/train/stage3_restoration_mse.yml
    python mmsr/train.py -opt "options/train/stage3_restoration_mse.yml"
    ```
+   
+### Acknowledgments
+
+Our DRefSR training dataset is partially from [CUFED](https://openaccess.thecvf.com/content_cvpr_2016/papers/Wang_Event-Specific_Image_Importance_CVPR_2016_paper.pdf), and our code is built on [C2-Matching](https://github.com/yumingj/C2-Matching). We thank the authors for sharing the dataset and codes.
 
 
 
