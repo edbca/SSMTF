@@ -1,7 +1,6 @@
 # SSMTF
 
-This repository contains the implementation of the following paper:
-Multi-Scale Texture Fusion for Reference-based Image Super-Resolution: New Dataset and Solution
+Pytorch implementation of our IJCV2025 paper "Multi-Scale Texture Fusion for Reference-based Image Super-Resolution: New Dataset and Solution" [[IJCV]](https://link.springer.com/article/10.1007/s11263-025-02514-3)
 
 ## Overview
 
