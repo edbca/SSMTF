@@ -10,11 +10,14 @@ datasets:
   test_1:  # the 1st test dataset
     name: dataset_dame
     type: RefCUFEDDataset
-    dataroot_in: /mnt/data2/zhy/reference/dataset/DRefSR/test/DRefSR
-    dataroot_ref: /mnt/data2/zhy/reference/dataset/DRefSR/test/DRefSR
+    dataroot_in: /data/zhouhongyang/zhouhongyang/GNNSR/datasets/CUFED/test/CUFED5
+    dataroot_ref: /data/zhouhongyang/zhouhongyang/GNNSR/datasets/CUFED/test/CUFED5
+    io_backend:
       type: disk
+
     bicubic_model: PIL
-    ann_file: ./datasets/DRefSR_pairs.txt
+    ann_file: ./datasets/CUFED5_pairs.txt
+    
 val_func: BasicSRValidation
 save_img: true
 
@@ -35,6 +38,6 @@ network_extractor:
 
 #### path
 path:
-  pretrain_model_g: ./pretrained_models/SSMTF_mse_DRefSR.pth
+  pretrain_model_g: ./pretrained_models/SSMTF_gan_CUFED.pth
   pretrain_model_feature_extractor: ./pretrained_models/feature_extraction.pth
   strict_load: true
