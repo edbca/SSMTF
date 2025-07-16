@@ -191,10 +191,11 @@ class RefRestorationModel(SRModel):
 
     def optimize_parameters(self, step):
         self.features = self.net_extractor(self.match_img_in, self.img_ref)
-        self.pre_offset, self.img_ref_feat, self.mask = self.net_map(self.features, self.img_ref)
-        self.output = self.net_g(self.img_in_lq, self.pre_offset, self.img_ref_feat, self.mask)
-
+        self.pre_offset, self.img_ref_feat = self.net_map(self.features, self.img_ref)
+        self.output = self.net_g(self.img_in_lq, self.pre_offset,self.img_ref_feat)
+        torch.autograd.set_detect_anomaly(True)
         if step <= self.net_g_pretrain_steps:
+        #if step <= -1:
             # pretrain the net_g with pixel Loss
             self.optimizer_g.zero_grad()
             l_pix = self.cri_pix(self.output, self.gt)
@@ -222,10 +223,9 @@ class RefRestorationModel(SRModel):
                 self.log_dict['out_d_fake'] = torch.mean(fake_d_pred.detach())
                 l_d_total = l_d_real + l_d_fake
                 if self.cri_grad_penalty:
-                    l_grad_penalty = self.cri_grad_penalty(
-                        self.net_d, self.gt, self.output)
+                    l_grad_penalty = self.cri_grad_penalty(self.net_d, self.gt, self.output)
                     self.log_dict['l_grad_penalty'] = l_grad_penalty.item()
-                    l_d_total += l_grad_penalty
+                    l_d_total = l_d_total + l_grad_penalty
                 l_d_total.backward()
                 self.optimizer_d.step()
 
@@ -270,8 +270,10 @@ class RefRestorationModel(SRModel):
         self.net_g.eval()
         with torch.no_grad():
             self.features = self.net_extractor(self.match_img_in, self.img_ref)
-            self.pre_offset, self.img_ref_feat, self.mask = self.net_map(self.features, self.img_ref)
-            self.output = self.net_g(self.img_in_lq, self.pre_offset, self.img_ref_feat, self.mask)
+            self.pre_offset, self.img_ref_feat = self.net_map(
+                self.features, self.img_ref)
+            self.output = self.net_g(self.img_in_lq, self.pre_offset,
+                                     self.img_ref_feat)
         self.net_g.train()
 
     def get_current_visuals(self):
@@ -288,8 +290,7 @@ class RefRestorationModel(SRModel):
             self.save_network(self.net_d, 'net_d', current_iter)
         self.save_training_state(epoch, current_iter)
 
-    def nondist_validation(self, dataloader, current_iter, tb_logger,
-                           save_img):
+    def nondist_validation(self, dataloader, current_iter, tb_logger,save_img):
         pbar = ProgressBar(len(dataloader))
         avg_psnr = 0.
         avg_psnr_y = 0.
